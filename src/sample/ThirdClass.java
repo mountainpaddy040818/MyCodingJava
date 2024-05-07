@@ -4,7 +4,9 @@ public class ThirdClass {
 
 	public static void main(String[] args) {
 		// TODO 自動生成されたメソッド・スタブ
+//		偶数の数
 		int count = 0;
+//		偶数の和、合計値
 		int sum = 0;
 		for(int i = 1; i <= 10; i++) {
 			if(i % 2 == 0) {
@@ -13,8 +15,8 @@ public class ThirdClass {
 			}
 		}
 		
-		System.out.println("偶数の個数は" + count );
-		System.out.println("偶数の合計は" + sum );
+		System.out.println(count);
+		System.out.println(sum);
 	}
 
 }
