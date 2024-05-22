@@ -17,9 +17,23 @@ public class Practice6 {
 		}
 	}
 	
-	public static void main(String[] args) {
-		Practice6 outer = new Practice6();
-		Person person = outer.new Person("山田", 23);
-		person.display();
+	class Student extends Person {
+		private String studentId;
+		
+		public Student(String name, int age, String studentId) {
+			super(name, age);
+			this.studentId = studentId;
+		}
+		@Override
+		public void display() {
+			super.display();
+			System.out.println("学生ID： " + studentId);
+		}
+		
+		public static void main(String[] args) {
+			Practice6 outer = new Practice6();
+			Student student = outer.new Student("山田", 23, "S97531");
+			student.display();
+		}
 	}
 }
