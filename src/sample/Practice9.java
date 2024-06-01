@@ -26,7 +26,10 @@ public class Practice9 {
 		
 		int num = number1 + number2 + number3;
 		
+		int num2 = number1 * number2 * number3;
+		
 		System.out.println("最大の値は" + max + "です。");
 		System.out.println("整数の合計値は" + num + "です。");
+		System.out.println("三つの整数の積は" + num2 + "です。");
 	}
 }
