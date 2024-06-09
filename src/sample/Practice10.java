@@ -15,8 +15,13 @@ public class Practice10 {
 			int seireki2 = seireki + i;
 			System.out.print("西暦" + seireki2 + "年は、");
 			int heisei = seireki2 - 1988;
+			int reiwa = seireki2 - 2018;
 			if(heisei == 1) {
 				System.out.println("平成元年です。");
+			} else if(heisei == 31) {
+				System.out.println("平成" + heisei + "年です。" + "平成最後の年です。2019/05/01から令和元年です。");
+			} else if(heisei >= 32) {
+				System.out.println("令和" + reiwa + "年です。");
 			} else {
 				System.out.println("平成" + heisei + "年です。");
 			}
