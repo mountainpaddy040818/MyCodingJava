@@ -21,5 +21,4 @@ public class Practice11 {
             System.out.println(t);
         }
 	}
-
 }
