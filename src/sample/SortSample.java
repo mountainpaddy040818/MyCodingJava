@@ -26,6 +26,7 @@ public class SortSample {
 		}
 	}
 	
+//	与えられた値が数字であるか否か確認するメソッド
 	public static boolean isInteger(int value) {
         try {
             Integer.parseInt(String.valueOf(value));
