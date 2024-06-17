@@ -25,7 +25,7 @@ public class Seiseki {
 						System.out.println("101点以上です。もう一度入力してください。");
 					}
 				} else {
-					System.out.println("整数ではありません。もう一度入力してください。");
+					System.out.println("自然数ではありません。もう一度入力してください。");
 					scan.next();
 				}
 			}
