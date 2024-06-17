@@ -22,6 +22,7 @@ public class SortSample {
 				}
 			} else if (SortList[i] != 6) {
 				System.out.println("設定された引数の数が正しくありません。確認の上再度実行してください。");
+				break;
 			}
 		}
 	}
