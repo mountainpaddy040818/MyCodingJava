@@ -2,6 +2,7 @@ package sample;
 
 import java.util.Scanner;
 
+//入力された社員名及び社員番号を表示するクラス
 public class OutPutEmpInfo {
 	private static final int DefEmpNumber = 999999999;
 	
