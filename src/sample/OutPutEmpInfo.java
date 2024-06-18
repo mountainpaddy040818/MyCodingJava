@@ -6,7 +6,6 @@ public class OutPutEmpInfo {
 	private static final int DefEmpNumber = 999999999;
 	
 	public static void main(String[] args) {
-		// TODO 自動生成されたメソッド・スタブ]
 		Scanner scan = new Scanner(System.in);
 		System.out.println("名前を入力してください。");
 		String name = scan.nextLine();
