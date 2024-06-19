@@ -9,18 +9,28 @@ import java.util.Scanner;
  */
 public class SortSample {
 	/**
+	 * メインメソッド外に配列を作成
+	 */
+	private static String[] SortList;
+	/**
+	 * 目的：配列のインデックス番号を0スタートから1スタートにさせたく配列の要素を一つ多く作成
+	 * @param size
+	 */
+	public SortSample(String[] size) {
+		SortList = new String[Integer.parseInt(size[5]) + 1];
+	}
+	/**
 	 * 6番目に入力された値が数字の場合は対応する配列から値を出力
 	 * 6番目に数字以外または配列数よりも長い数字などが入力された場合はエラー文を返す。
 	 * @param args
 	 */
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
-		String[] SortList = new String[5];
-		System.out.println("値を6つ入力してください。");
+		System.out.println("6つの値を入力してください。");
 		// 入力された値をスペース区切りで受け取る
 		SortList = scan.nextLine().split(" ");
 		// 配列の長さが6以外の場合、エラーを出力
-		int x = 1;
+		int x = 0;
 		if(SortList.length != 6) {
 			System.out.println("設定された引数の数が正しくありません。確認の上再度実行してください。");
 			return;
@@ -41,6 +51,6 @@ public class SortSample {
 		// 配列のx番目を出力
 		System.out.println(SortList[5] + "番目の値は" + SortList[x] + "です。");
 		Arrays.sort(SortList);
-		System.out.println(Arrays.toString(SortList));
+		System.out.println("昇順並び替え：" + Arrays.toString(SortList));
 	}    
 }
