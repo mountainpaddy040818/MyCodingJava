@@ -8,49 +8,77 @@ import java.util.Scanner;
  * ※出力対象となる番号は6番目の引数を使用する。
  */
 public class SortSample {
+	
 	/**
-	 * メインメソッド外に配列を作成
+	 * 他のメソッドでも同じ定数を再利用できるようにするため
 	 */
-	private static String[] SortList;
+	private static final int SIZE = 5;
+	
 	/**
-	 * 目的：配列のインデックス番号を0スタートから1スタートにさせたく配列の要素を一つ多く作成
-	 * @param size
+	 * メソッド間のデータのやり取りを容易にするため
 	 */
-	public SortSample(String[] size) {
-		SortList = new String[Integer.parseInt(size[5]) + 1];
-	}
+	private String[] SortList = new String[SIZE];
+	
 	/**
 	 * 6番目に入力された値が数字の場合は対応する配列から値を出力
 	 * 6番目に数字以外または配列数よりも長い数字などが入力された場合はエラー文を返す。
-	 * @param args
+	 * @param args　実行時の引数。引数は不要。すべての入力は実行時にコンソールから行われる。
 	 */
 	public static void main(String[] args) {
+		SortSample s = new SortSample();
+		s.start(args);
+	}
+	
+	/**
+	 * 下記メソッドをmainメソッドに挿入する。
+	 * @param args　実行時の引数。引数は不要。すべての入力は実行時にコンソールから行われる。
+	 */
+	private void start(String[] args) {
 		Scanner scan = new Scanner(System.in);
-		System.out.println("6つの値を入力してください。");
-		// 入力された値をスペース区切りで受け取る
-		SortList = scan.nextLine().split(" ");
-		// 配列の長さが6以外の場合、エラーを出力
-		int x = 0;
-		if(SortList.length != 6) {
+		System.out.println("5つの値を入力してください。");
+		String scanArray = scan.nextLine();
+		String[] array = scanArray.split(" ");
+		
+		if(array.length != SIZE) {
 			System.out.println("設定された引数の数が正しくありません。確認の上再度実行してください。");
 			return;
-		} else {
+		}
+		for(int i = 0; i < SIZE; i++) {
+			// 入力された値をスペース区切りで受け取る
 			try {
-				// 6番目に入力した数値に対応する文字を配列から取り出す
-				x = Integer.parseInt(SortList[5]);
-			} catch (NumberFormatException e) {
-				System.out.println("6番目の引数は数字で設定してください。");
-				scan.next();
+				SortList[i] = array[i].trim();
+			} catch(NumberFormatException e) {
+				return;
 			}
 		}
-		// 決められた配列の中で値を判別するため、1~6以外を無効とする。
-		if(x < 1 || x > 7) {
-			System.out.println("入力する整数は1~6の中で指定してください。");
-			scan.next();
-		}
-		// 配列のx番目を出力
-		System.out.println(SortList[5] + "番目の値は" + SortList[x] + "です。");
+		// 確認として入力された値を出力する。
+		System.out.println("入力された値：" + Arrays.toString(SortList));
+		// 配列を昇順に変更
 		Arrays.sort(SortList);
-		System.out.println("昇順並び替え：" + Arrays.toString(SortList));
-	}    
+		// 昇順にソートされた配列を出力する。
+		System.out.println("昇順：" + Arrays.toString(SortList));
+		// 6番目に入力する1~5までの整数
+		int x = -1;
+		// 数字が1~5の整数なのか確認
+		boolean isInputInt = false;
+		System.out.println("出力する引数の番号を1~5の範囲で入力してください。");
+		// 1~5の整数が入力されるまで、ループを抜けない。
+		while(!isInputInt) {
+			// 1~5の数字が入力されているか
+			if(scan.hasNextInt()) {
+				x = scan.nextInt();
+				// 1~5の数字が入力された場合は正常文を出力してループを抜ける。
+				if(x >= 1 && x <= 5) {
+					System.out.println(x + "番目の値は" + "”" + SortList[x - 1] + "" + "です。");
+					isInputInt = true;
+				} else {
+					System.out.println("1~5の範囲で入力してください。");
+				}	
+			} else {
+					System.out.println("6番目の引数は数字で設定してください。");
+					scan.next();
+			}
+		}
+		scan.close();
+	}
 }
