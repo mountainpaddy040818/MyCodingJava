@@ -22,7 +22,7 @@ public class Seiseki {
 	/**
 	 * mainメソッド内で各科目の合計点、平均点を計算し算出する。
 	 * 入力された値が0~100以外の場合は無効とする。
-	 * @param args
+	 * @param args 実行時の引数。引数は不要。すべての入力は実行時にコンソールから行われる。
 	 */
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
