@@ -22,7 +22,7 @@ public class SortSample {
 	/**
 	 * 6番目に入力された値が数字の場合は対応する配列から値を出力
 	 * 6番目に数字以外または配列数よりも長い数字などが入力された場合はエラー文を返す。
-	 * @param args　実行時の引数。引数は不要。すべての入力は実行時にコンソールから行われる。
+	 * @param args 実行時の引数。引数は不要。すべての入力は実行時にコンソールから行われる。
 	 */
 	public static void main(String[] args) {
 		SortSample s = new SortSample();
@@ -31,7 +31,7 @@ public class SortSample {
 	
 	/**
 	 * 下記メソッドをmainメソッドに挿入する。
-	 * @param args　実行時の引数。引数は不要。すべての入力は実行時にコンソールから行われる。
+	 * @param args 実行時の引数。引数は不要。すべての入力は実行時にコンソールから行われる。
 	 */
 	private void start(String[] args) {
 		Scanner scan = new Scanner(System.in);
@@ -46,7 +46,7 @@ public class SortSample {
 		for(int i = 0; i < SIZE; i++) {
 			// 入力された値をスペース区切りで受け取る
 			try {
-				SortList[i] = array[i].trim();
+				SortList[i] = array[i];
 			} catch(NumberFormatException e) {
 				return;
 			}
@@ -69,13 +69,13 @@ public class SortSample {
 				x = scan.nextInt();
 				// 1~5の数字が入力された場合は正常文を出力してループを抜ける。
 				if(x >= 1 && x <= 5) {
-					System.out.println(x + "番目の値は" + "”" + SortList[x - 1] + "" + "です。");
+					System.out.println(x + "番目の値は" + "”" + SortList[x - 1] + "”" + "です。");
 					isInputInt = true;
 				} else {
 					System.out.println("1~5の範囲で入力してください。");
 				}	
 			} else {
-					System.out.println("6番目の引数は数字で設定してください。");
+					System.out.println("6番目の引数は整数（半角または全角）で入力してください。");
 					scan.next();
 			}
 		}
