@@ -4,66 +4,100 @@ package sample;
  * 入力された2つの値を比較し大きい方の値を表示するクラス
  */
 public class ChkInputNumber {
+	// 一つ目に入力される値
+	private static int firstNumber = 0;
+	// 二つ目に入力される値
+	private static int secoundNumber = 0;
 	
 	/**
 	 * 引数が一つしか渡されなかった場合の比較対象となるデフォルト値
-	 * このように定義することで、デフォルト値にアクセス制限が掛かり、
-	 * 他のクラスから直接参照や更新が出来なくなります。
 	 */
-	private static final int DefNumber = 3;
+	private static final int DEFAULT_NUMBER = 3;
 	
 	/**
-	 * startメソッドから与えられた引数を渡す。
-	 * @param args 引数は入力された二つの値
+	 * 引数が一つのみ与えられた場合の処理
+	 * 
+	 * @param thirdNumber 一つ目の値に代入
 	 */
-	public static void main(String[] args) {
-		ChkInputNumber inputNumber = new ChkInputNumber();
-		inputNumber.start(args);
+	private static void ChkInputNumber(int thirdNumber) {
+		this.firstNumber = thirdNumber;
+		this.secoundNumber = DEFAULT_NUMBER;
+	}
+	
+	/**
+	 * 引数が二つ与えられた場合の処理
+	 * 
+	 * @param fourthNumber 一つ目の値に代入
+	 * 
+	 * @param fifthNumber 二つ目の値に代入
+	 */
+	private static void ChkInputNumber(int fourthNumber, int fifthNumber) {
+		this.firstNumber = fourthNumber;
+		this.secoundNumber = fifthNumber;	
 	}
 	
 	/**
 	 * 二つの値の内、大きい方の値を処理するメソッド
-	 * @param args 引数は二つの入力される値
+	 * 
+	 * @param args 入力された二つの値
 	 */
-	public void start(String[] args) {
-		try {
-			switch (args.length) {
-				case 0:
-					System.out.println("入力値が設定されていません。引数を確認の上再度実行してください。");
-					return;
-				case 1:
-					System.out.println("入力された引数が一つの為、デフォルト値と比較します。");
-					int FirstCase = Integer.parseInt(args[0]);
-					int GetLargeNumber_case1 = CheckLargeNumber(FirstCase, DefNumber);
-					System.out.println("大きい値は、" + GetLargeNumber_case1 + "です。");
-					return;
-				case 2:
-					System.out.println("入力された引数：2");
-					int SecoundCase = Integer.parseInt(args[0]);
-					int ThirdCase = Integer.parseInt(args[1]);
-					int GetLargeNumber_case2 = CheckLargeNumber(SecoundCase, ThirdCase);
-					System.out.println("大きい値は、" + GetLargeNumber_case2 + "です。");
-					return;
-				default:
-					System.out.println("引数が3つ以上入力された為、3つ目以降の引数をカウントしません。");
-					int FourthCase = Integer.parseInt(args[0]);
-					int FifthCase = Integer.parseInt(args[1]);
-					int GetLargeNumber_case3 = CheckLargeNumber(FourthCase, FifthCase);
-					System.out.println("大きい値は、" + GetLargeNumber_case3 + "です。");
-					return;
-			}
-		} catch (NumberFormatException e) {
-			System.out.println("実行エラーです。記号、文字以外の「数値」を入力してください。");
-		}	
+	private void start(String[] args) {
+		switch (args.length) {
+			case 0:
+				System.out.println("入力値が設定されていません。引数を確認の上再度実行してください。");
+				return;
+			case 1:
+				System.out.println("入力された引数が一つの為、デフォルト値と比較します。");
+				return;
+			case 2:
+				System.out.println("入力された引数は二つです。");
+				return;
+			default:
+				System.out.println("引数が三つ以上入力された為、三つ目以降の引数をカウントしません。");
+				return;
+		}
 	}
 	
 	/**
 	 * 二つの値を比較して、大きい値を返すメソッド
-	 * @param a 一つ目の引数
-	 * @param b 二つ目の引数
+	 * 
+	 * @param firstNumber 一つ目の値
+	 * 
+	 * @param secoundNumber 二つ目の値
+	 * 
 	 * @return 値を返す
 	 */
-	private int CheckLargeNumber (int a, int b) {
-		return a > b ? a : b;
+	private void checkLargeNumber() {
+		if(firstNumber > secoundNumber) {
+			System.out.println("大きい値は、" + firstNumber + "です。");
+		} else if(firstNumber < secoundNumber){
+			System.out.println("大きい値は、" + secoundNumber + "です。");
+		} else {
+			System.out.println(firstNumber + "と" + secoundNumber + "は等しい値です。");
+		}
+	}
+	
+	/**
+	 * startメソッドから与えられた引数を渡す。
+	 * 
+	 * @param args 入力された二つの値
+	 */
+	public static void main(String[] args) {
+		ChkInputNumber inputNumber = new ChkInputNumber();
+		inputNumber.start(args);
+		try {
+			if(args.length == 1) {
+				int firstCase = Integer.parseInt(args[0]);
+				ChkInputNumber compare = new ChkInputNumber(firstCase);
+				compare.checkLargeNumber();
+			} else if(args.length == 2) {
+				int firstCase = Integer.parseInt(args[0]);
+				int secoundCase = Integer.parseInt(args[1]);
+				ChkInputNumber compare = new ChkInputNumber(firstCase, secoundCase);
+				compare.checkLargeNumber();
+			}
+		} catch(NumberFormatException e) {
+			System.out.println("引数が数字ではありません。");
+		}
 	}
 }
