@@ -16,9 +16,7 @@ public class OutPutEmpInfo {
 	 * インスタンスを作成し、メソッドを呼び出して処理を実行する。
 	 * 
 	 * @param args プログラム実行時に渡される引数:
-	 * 
 	 *             - args[0]: 社員名（必須）
-	 *             
 	 *             - args[1]: 社員番号（省略可能）
 	 */
 	public static void main(String[] args) {
@@ -30,9 +28,7 @@ public class OutPutEmpInfo {
 	 * 入力された引数の数によって処理が変わるメソッド
 	 * 
 	 * @param inputs プログラム実行時に渡される引数:
-	 * 
 	 * 				- inputs[0]: 社員名（必須）
-	 * 
 	 *              - inputs[1]: 社員番号（省略可能)
 	 */
 	private void start(String[] inputs) {
@@ -64,10 +60,9 @@ public class OutPutEmpInfo {
 	}
 	
 	/**
-	 * 名前と社員番号が渡された場合の処理
+	 * 社員名と社員番号が渡された場合の処理
 	 * 
 	 * @param name 社員名
-	 * 
 	 * @param EmpNumber 社員番号
 	 */
 	private void outPutEmployeeInfo(String name, String EmployeeNumber) {
