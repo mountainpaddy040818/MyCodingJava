@@ -56,7 +56,7 @@ public class ChkInputNumber {
 			return;
 		}
 		ChkInputNumber compare;
-		// 引数の数に応じて呼び出し
+		// 引数の数に応じて出力変化
 		if(args.length == 1) {
 			int firstCase = Integer.parseInt(args[0]);
 			compare = new ChkInputNumber(firstCase);
@@ -67,7 +67,7 @@ public class ChkInputNumber {
 		}
 		compare.checkLargeNumber();
 	}
-	
+
 	/**
 	 * 引数の数に応じてメッセージ出力
 	 * 
