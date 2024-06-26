@@ -66,7 +66,7 @@ public class ChkInputNumber {
 			}
 			compare.checkLargeNumber();
 		} catch (NumberFormatException e) {
-			System.out.println("値は数値ではありません。");
+			System.out.println("半角または全角数字のみで入力してください。");
 		}
 	}
 
@@ -102,7 +102,7 @@ public class ChkInputNumber {
 		} else if(this.firstNumber < this.secoundNumber){
 			System.out.println("大きい値は" + this.secoundNumber + "です。");
 		} else {
-			System.out.println(this.firstNumber + "と" + this.secoundNumber + "は等しい値です。");
+			System.out.println("与えられた引数は等しい値です。");
 		}
 	}
 }
