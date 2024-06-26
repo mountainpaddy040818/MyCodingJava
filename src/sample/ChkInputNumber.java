@@ -48,24 +48,26 @@ public class ChkInputNumber {
 	 * @param args 入力された二つの値
 	 */
 	public static void main(String[] args) {
-		ChkInputNumber inputNumber = new ChkInputNumber();
-		// 引数があるか無いか確認
-		boolean isArgsZero = inputNumber.checkArgs(args);
+		ChkInputNumber inputNumber = new ChkInputNumber();		
 		// 引数がない場合「偽」、引数が一つ以上ある場合「真」
-		if(!isArgsZero) {
+		if(!checkArgs(args)) {
 			return;
 		}
 		ChkInputNumber compare;
 		// 引数の数に応じて出力変化
-		if(args.length == 1) {
-			int firstCase = Integer.parseInt(args[0]);
-			compare = new ChkInputNumber(firstCase);
-		} else {
-			int firstCase = Integer.parseInt(args[0]);
-			int secoundCase = Integer.parseInt(args[1]);
-			compare = new ChkInputNumber(firstCase, secoundCase);
+		try {
+			if(args.length == 1) {
+				int firstCase = Integer.parseInt(args[0]);
+				compare = new ChkInputNumber(firstCase);
+			} else {
+				int firstCase = Integer.parseInt(args[0]);
+				int secoundCase = Integer.parseInt(args[1]);
+				compare = new ChkInputNumber(firstCase, secoundCase);
+			}
+			compare.checkLargeNumber();
+		} catch (NumberFormatException e) {
+			System.out.println("値は数値ではありません。");
 		}
-		compare.checkLargeNumber();
 	}
 
 	/**
@@ -83,7 +85,7 @@ public class ChkInputNumber {
 				System.out.println("入力された引数が一つの為、デフォルト値と比較します。");
 				return true;
 			case 2:
-				System.out.print("入力された二つの引数のうち、");
+				System.out.println("入力された引数は二つです。");
 				return true;
 			default:
 				System.out.println("引数が三つ以上入力された為、三つ目以降の引数をカウントしません。");
