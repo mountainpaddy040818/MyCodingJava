@@ -47,8 +47,7 @@ public class ChkInputNumber {
 	 * 
 	 * @param args 入力された二つの値
 	 */
-	public static void main(String[] args) {
-		ChkInputNumber inputNumber = new ChkInputNumber();		
+	public static void main(String[] args) {	
 		// 引数がない場合「偽」、引数が一つ以上ある場合「真」
 		if(!checkArgs(args)) {
 			return;
