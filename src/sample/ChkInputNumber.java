@@ -101,7 +101,7 @@ public class ChkInputNumber {
 		} else if(this.firstNumber < this.secoundNumber){
 			System.out.println("大きい値は" + this.secoundNumber + "です。");
 		} else {
-			System.out.println("与えられた引数は等しい値です。");
+			System.out.println(this.firstNumber + "と" + this.secoundNumber + "は等しい値です。");
 		}
 	}
 }
